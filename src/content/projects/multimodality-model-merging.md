@@ -1,6 +1,6 @@
 ---
 title: "Multimodal Model Merging"
-description: "Model fusion via compact subspace parameter compression for fast expert-model merging under compute constraints."
+description: "Multimodal model merging via geometric alignment, weight preconditioning, and truncation."
 date: 2025-12-10
 featured: true
 tags: ["Model Merging", "Multimodal", "Deep Learning", "Vision"]
@@ -10,13 +10,13 @@ links:
   # writeup: "https://github.com/oscarbreiner"
 ---
 
-Research project at the lab of Prof. Daniel Cremers under the supervision of Dr. Almut Sophia Koepke, focused on practical model fusion strategies that preserve performance while reducing compute demands.
+Research project at the lab of Prof. Daniel Cremers, focused on efficient multimodal model merging under practical compute constraints.
 
 ## Highlights
 
-- Built a model fusion method that compresses fine-tuned updates into a compact parameter subspace.
-- Enabled fast merging of multiple expert models with minimal compute overhead.
-- Achieved competitive accuracy while improving deployment efficiency.
+- Developed a multimodal model merging method based on geometric alignment.
+- Improved efficiency through weight preconditioning and truncation.
+- Targeted practical merging of expert models under compute constraints.
 
 ---
 

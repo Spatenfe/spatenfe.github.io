@@ -1,6 +1,6 @@
 ---
 title: "3D Vision Reconstruction"
-description: "Improving 3DGS-MCMC with hybrid error-opacity scoring and visibility-based Gaussian relocation."
+description: "Improving SfM-free 3D Gaussian Splatting for large-surface rendering with blended visibility and error signals."
 date: 2026-02-23
 featured: true
 tags: ["Vision", "Reconstruction", "Deep Learning"]
@@ -10,7 +10,7 @@ links:
   github: "https://github.com/oscarbreiner/3dgs-mcmc-boosted.git"
 ---
 
-Research project at the 3D AI Lab of Prof. Angela Dai on improving Markov Chain Monte Carlo 3D Gaussian Splatting (3DGS-MCMC) for more robust 3D reconstruction without Structure-from-Motion initialization.
+Research project at the 3D AI Lab of Prof. Angela Dai on improving Markov Chain Monte Carlo 3D Gaussian Splatting (3DGS-MCMC) for more robust SfM-free reconstruction and stronger large-surface rendering.
 
 ## Highlights
 
