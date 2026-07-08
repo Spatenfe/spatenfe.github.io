@@ -8,6 +8,7 @@ tags: ["Reinforcement Learning", "Multi-Agent Systems", "Autonomous Vehicles", "
 image: "/images/projects/decentralized-rl-multi-agent-navigation.svg"
 links:
   github: "https://github.com/Spatenfe/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments"
+  writeup: "https://spatenfe.github.io/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments/"
 ---
 
 Research at the Computer Vision Group, TUM, on decentralized reinforcement learning for multi-agent vehicle navigation in unconstrained environments — published at IEEE IV 2025.
