@@ -12,6 +12,7 @@ const projects = defineCollection({
     tags: z.array(z.string()).default([]),
     image: z.string(),
     bannerImage: z.string().optional(),
+    imageFit: z.enum(['cover', 'contain']).default('cover'),
     links: z
       .object({
         github: z.string().url().optional(),

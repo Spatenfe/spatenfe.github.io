@@ -5,8 +5,9 @@ date: 2026-02-01
 featured: true
 category: project
 tags: ["Machine Learning", "Particle Physics", "Deep Learning", "Benchmark"]
-image: "/images/projects/vbf-event-classifier-topology.png"
-bannerImage: "/images/projects/vbf-event-classifier-topology.png"
+image: "/images/projects/vbf-event-classifier-banner.png"
+bannerImage: "/images/projects/vbf-event-classifier-banner.png"
+imageFit: "contain"
 links:
   github: "https://github.com/Spatenfe/vbf_event_classifier"
   writeup: "https://spatenfe.github.io/vbf_event_classifier/"
