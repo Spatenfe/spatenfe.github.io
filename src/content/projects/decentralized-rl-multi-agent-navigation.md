@@ -6,6 +6,7 @@ featured: true
 category: research
 tags: ["Reinforcement Learning", "Multi-Agent Systems", "Autonomous Vehicles", "Navigation"]
 image: "/images/projects/decentralized-rl-multi-agent-navigation.gif"
+bannerImage: "/images/projects/decentralized-rl-banner.png"
 links:
   github: "https://github.com/Spatenfe/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments"
   writeup: "https://spatenfe.github.io/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments/"
