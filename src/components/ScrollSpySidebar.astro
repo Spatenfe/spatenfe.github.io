@@ -1,6 +1,6 @@
 ---
 interface Props {
-  items: { id: string; label: string }[];
+  items: { ids: string[]; label: string }[];
 }
 
 const { items } = Astro.props;
@@ -14,9 +14,9 @@ const { items } = Astro.props;
     {items.map((item) => (
       <li>
         <a
-          href={`#${item.id}`}
+          href={`#${item.ids[0]}`}
           data-scrollspy-link
-          data-target={item.id}
+          data-targets={item.ids.join(',')}
           class="-ml-px block border-l-2 border-transparent pl-4 text-xs leading-snug text-muted transition-colors duration-200 hover:text-ink"
         >
           {item.label}
@@ -29,18 +29,18 @@ const { items } = Astro.props;
 <script>
   const links = Array.from(document.querySelectorAll('[data-scrollspy-link]'));
 
-  const sections = links
+  const groups = links
     .map((link) => {
-      const id = link.getAttribute('data-target');
-      const el = id ? document.getElementById(id) : null;
-      return el ? { id, link, el } : null;
+      const ids = (link.getAttribute('data-targets') || '').split(',').filter(Boolean);
+      const els = ids.map((id) => document.getElementById(id)).filter(Boolean);
+      return els.length ? { link, ids, els } : null;
     })
     .filter(Boolean);
 
-  if (sections.length) {
-    const setActive = (activeId) => {
-      sections.forEach(({ id, link }) => {
-        const isActive = id === activeId;
+  if (groups.length) {
+    const setActive = (activeLink) => {
+      groups.forEach(({ link }) => {
+        const isActive = link === activeLink;
         link.classList.toggle('text-ink', isActive);
         link.classList.toggle('font-bold', isActive);
         link.classList.toggle('border-accent', isActive);
@@ -61,13 +61,13 @@ const { items } = Astro.props;
           }
         });
 
-        const active = sections.find(({ id }) => visible.has(id));
-        if (active) setActive(active.id);
+        const active = groups.find(({ ids }) => ids.some((id) => visible.has(id)));
+        if (active) setActive(active.link);
       },
       { rootMargin: '-15% 0px -70% 0px', threshold: 0 }
     );
 
-    sections.forEach(({ el }) => observer.observe(el));
-    setActive(sections[0].id);
+    groups.forEach(({ els }) => els.forEach((el) => observer.observe(el)));
+    setActive(groups[0].link);
   }
 </script>

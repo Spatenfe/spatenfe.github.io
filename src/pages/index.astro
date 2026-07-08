@@ -41,13 +41,11 @@ const personalCards = [
 ];
 
 const sidebarItems = [
-  { id: 'news', label: 'News' },
-  { id: 'research', label: 'Research Highlights' },
-  ...(otherProjects.length > 0 ? [{ id: 'projects', label: 'Projects' }] : []),
-  { id: 'experience', label: 'Work Experience' },
-  { id: 'education', label: 'Education' },
-  { id: 'personal', label: 'Personal' },
-  { id: 'stack', label: 'Tech Stack' }
+  { ids: ['news'], label: 'News' },
+  { ids: ['research'], label: 'Research Highlights' },
+  ...(otherProjects.length > 0 ? [{ ids: ['projects'], label: 'Projects' }] : []),
+  { ids: ['experience', 'education'], label: 'Experience & Education' },
+  { ids: ['personal', 'stack'], label: 'Personal & Tech Stack' }
 ];
 ---
 
