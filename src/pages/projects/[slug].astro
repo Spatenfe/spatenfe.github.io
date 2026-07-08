@@ -34,13 +34,15 @@ const banner = bannerImage ?? image;
     <SectionHeader title={title} subtitle={description} />
 
     <article class="surface-card overflow-hidden">
-      <img
-        src={withBase(banner)}
-        alt={title}
-        class={bannerImage
-          ? 'w-full border-b border-border object-contain'
-          : 'h-56 w-full border-b border-border object-cover sm:h-80'}
-      />
+      <div class:list={['border-b border-border', project.slug === 'stylo-pipeline' && 'px-12 sm:px-24']}>
+        <img
+          src={withBase(banner)}
+          alt={title}
+          class={bannerImage
+            ? 'w-full object-contain'
+            : 'h-56 w-full object-cover sm:h-80'}
+        />
+      </div>
       <div class="p-6 sm:p-8">
         <p class="font-mono text-[11px] uppercase tracking-wide text-muted">{date.getFullYear()}</p>
 
