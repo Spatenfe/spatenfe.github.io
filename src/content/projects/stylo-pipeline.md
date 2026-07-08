@@ -14,6 +14,8 @@ links:
 
 A TUM practical-course project with Andreas Weber, chaining together six public vision foundation models into a single pipeline for virtual try-on and semantic outfit editing: swap out the background and lighting of a photo, select the person to dress, generate a new garment from a text prompt, and fit it onto them — end to end, no manual masking or compositing. The animation above shows the pipeline's inputs — a source garment, a new background, and a person photo — combining into the fitted result.
 
+<img src="/images/projects/stylo-pipeline-overview.png" alt="Step-by-step pipeline overview: start from a photo of a person, source or generate a garment, find the person, reset the scene, match the light, fit the garment, and get the result" class="float-right ml-6 mb-4 w-full max-w-[320px] rounded-lg border border-border sm:max-w-[400px]" />
+
 ## Highlights
 
 - Orchestrated background generation, person segmentation and pose estimation, lighting harmonization, garment sourcing, and virtual fitting into one pipeline built from six independently maintained foundation-model repos, each forked and pulled in as a git submodule.
@@ -24,8 +26,6 @@ A TUM practical-course project with Andreas Weber, chaining together six public 
 ---
 
 ### How the pipeline fits together
-
-<img src="/images/projects/stylo-pipeline-overview.png" alt="Step-by-step pipeline overview: start from a photo of a person, source or generate a garment, find the person, reset the scene, match the light, fit the garment, and get the result" class="float-right ml-6 mb-4 w-full max-w-[220px] rounded-lg border border-border sm:max-w-[260px]" />
 
 Six independently maintained foundation-model repos, each forked and wired in as a git submodule, are chained through a shared image/mask interface. [Yahoo's diffusion background generator](https://github.com/yahoo/photo-background-generation) repaints the scene behind the subject from a text prompt, and [Harmonizer](https://github.com/ZHKKKe/Harmonizer/) corrects the resulting lighting mismatch. The person is located with text-prompted segmentation ([lang-segment-anything](https://github.com/luca-medeiros/lang-segment-anything), i.e. SAM2 grounded by prompts like "person." and "pants.") and posed with [DensePose](https://github.com/facebookresearch/detectron2/tree/main/projects/DensePose). On the garment side, a catalog is searched with CLIP embeddings — captioned offline by [LLaVA](https://huggingface.co/llava-hf/llava-1.5-7b-hf) — or a new garment is generated from a text prompt with [Stable Diffusion 3.5](https://github.com/Stability-AI/sd3.5); either way, [StableVITON](https://github.com/rlawjdghek/StableVITON) then warps and fits it onto the person, guided by the DensePose result.
 
