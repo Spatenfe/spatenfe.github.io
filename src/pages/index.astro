@@ -7,10 +7,12 @@ import Hero from '../components/Hero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import Timeline from '../components/Timeline.astro';
+import NewsFeed from '../components/NewsFeed.astro';
 import { techGroups } from '../data/tech';
 import { experience } from '../data/experience';
 import { education } from '../data/education';
 import { profileDetails } from '../data/profile';
+import { news } from '../data/news';
 
 const allProjects = (await getCollection('projects')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const researchProjects = allProjects.filter((project) => project.data.featured && project.data.category === 'research');
@@ -43,6 +45,11 @@ const personalCards = [
   <Navbar />
   <main class="container-page pb-8">
     <Hero />
+
+    <section id="news" class="section-spacing">
+      <SectionHeader title="News" subtitle="Recent updates and milestones." />
+      <NewsFeed items={news} />
+    </section>
 
     <section id="research" class="section-spacing">
       <SectionHeader
