@@ -14,6 +14,7 @@ import { experience } from '../data/experience';
 import { education } from '../data/education';
 import { profileDetails } from '../data/profile';
 import { news } from '../data/news';
+import { siteData } from '../data/site';
 
 const allProjects = (await getCollection('projects')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const researchProjects = allProjects.filter((project) => project.data.featured && project.data.category === 'research');
@@ -263,6 +264,33 @@ const sidebarItems = [
               </article>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing">
+      <div class="surface-card reveal flex flex-col items-center gap-4 p-8 text-center sm:p-12">
+        <h2 class="font-display text-2xl font-semibold text-ink sm:text-3xl">Always happy to get in touch!</h2>
+        <p class="max-w-md text-sm text-muted sm:text-base">
+          Whether it's research, collaboration, or just a good conversation about AI — feel free to reach out.
+        </p>
+        <div class="mt-2 flex flex-wrap justify-center gap-3">
+          {siteData.email && (
+            <a
+              href={`mailto:${siteData.email}`}
+              class="rounded-lg border border-accent bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#121a2d]"
+            >
+              Email Me
+            </a>
+          )}
+          <a
+            href={siteData.linkedinUrl}
+            target="_blank"
+            rel="noreferrer"
+            class="rounded-lg border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-ink"
+          >
+            Connect on LinkedIn
+          </a>
         </div>
       </div>
     </section>
