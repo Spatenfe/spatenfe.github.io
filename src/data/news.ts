@@ -8,7 +8,7 @@ export type NewsItem = {
 export const news: NewsItem[] = [
   {
     date: 'July 2026',
-    text: 'I\'m doing a Research Stay at BAIR, UC Berkeley with Sophia Koepke and Alexei (Alyosha) Efros for the summer of 2026.',
+    text: 'I\'m happy to join Sophia Koepke and Alexei (Alyosha) Efros at BAIR, UC Berkeley for my research stay this summer.',
     link: 'https://bair.berkeley.edu/',
     external: true
   },
