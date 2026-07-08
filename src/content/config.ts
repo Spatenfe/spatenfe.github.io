@@ -7,6 +7,7 @@ const projects = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     featured: z.boolean().default(false),
+    category: z.enum(['research', 'project']).default('project'),
     tags: z.array(z.string()).default([]),
     image: z.string(),
     links: z

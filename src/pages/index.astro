@@ -12,10 +12,9 @@ import { experience } from '../data/experience';
 import { education } from '../data/education';
 import { profileDetails } from '../data/profile';
 
-const featuredProjects = (await getCollection('projects'))
-  .filter((project) => project.data.featured)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  //.slice(0, 6);
+const allProjects = (await getCollection('projects')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const researchProjects = allProjects.filter((project) => project.data.featured && project.data.category === 'research');
+const otherProjects = allProjects.filter((project) => project.data.featured && project.data.category === 'project');
 
 const experienceItems = experience.map((item) => ({
   title: item.company,
@@ -45,46 +44,59 @@ const personalCards = [
   <main class="container-page pb-8">
     <Hero />
 
-    <section id="projects" class="section-spacing">
+    <section id="research" class="section-spacing">
       <SectionHeader
         title="Research Highlights"
         subtitle="A selection of projects spanning multimodal fusion, 3D scene understanding, and robust deployment."
       />
       <div id="featured-project-grid" class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {featuredProjects.map((project) => <ProjectCard project={project} />)}
+        {researchProjects.map((project) => <ProjectCard project={project} />)}
       </div>
-      <script>
-        const equalizeProjectCards = (gridId) => {
-          const grid = document.getElementById(gridId);
-          if (!grid) return;
-
-          const descriptions = Array.from(grid.querySelectorAll('[data-project-description]'));
-          const cards = Array.from(grid.querySelectorAll('[data-project-card]'));
-          if (!descriptions.length || !cards.length) return;
-
-          descriptions.forEach((el) => {
-            el.style.minHeight = '0px';
-          });
-          cards.forEach((el) => {
-            el.style.minHeight = '0px';
-          });
-
-          const maxDescriptionHeight = Math.max(...descriptions.map((el) => el.getBoundingClientRect().height));
-          descriptions.forEach((el) => {
-            el.style.minHeight = `${maxDescriptionHeight}px`;
-          });
-
-          const maxCardHeight = Math.max(...cards.map((el) => el.getBoundingClientRect().height));
-          cards.forEach((el) => {
-            el.style.minHeight = `${maxCardHeight}px`;
-          });
-        };
-
-        const runEqualize = () => equalizeProjectCards('featured-project-grid');
-        runEqualize();
-        window.addEventListener('resize', runEqualize);
-      </script>
     </section>
+
+    {otherProjects.length > 0 && (
+      <section id="projects" class="section-spacing">
+        <SectionHeader
+          title="Projects"
+          subtitle="Independent builds and tools outside of published research."
+        />
+        <div id="other-project-grid" class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {otherProjects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+    )}
+
+    <script>
+      const equalizeProjectCards = (gridId) => {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
+
+        const descriptions = Array.from(grid.querySelectorAll('[data-project-description]'));
+        const cards = Array.from(grid.querySelectorAll('[data-project-card]'));
+        if (!descriptions.length || !cards.length) return;
+
+        descriptions.forEach((el) => {
+          el.style.minHeight = '0px';
+        });
+        cards.forEach((el) => {
+          el.style.minHeight = '0px';
+        });
+
+        const maxDescriptionHeight = Math.max(...descriptions.map((el) => el.getBoundingClientRect().height));
+        descriptions.forEach((el) => {
+          el.style.minHeight = `${maxDescriptionHeight}px`;
+        });
+
+        const maxCardHeight = Math.max(...cards.map((el) => el.getBoundingClientRect().height));
+        cards.forEach((el) => {
+          el.style.minHeight = `${maxCardHeight}px`;
+        });
+      };
+
+      const runEqualize = () => ['featured-project-grid', 'other-project-grid'].forEach(equalizeProjectCards);
+      runEqualize();
+      window.addEventListener('resize', runEqualize);
+    </script>
 
     <section id="stack" class="section-spacing">
       <SectionHeader title="Tech Stack" subtitle="Core tools for research throughput and production-grade system delivery." />

@@ -3,6 +3,7 @@ title: "Decentralized RL for Multi-Agent Navigation"
 description: "Published research on decentralized reinforcement learning for multi-agent vehicle navigation in unconstrained environments."
 date: 2025-03-01
 featured: true
+category: research
 tags: ["Reinforcement Learning", "Multi-Agent Systems", "Autonomous Vehicles", "Navigation"]
 image: "/images/projects/decentralized-rl-multi-agent-navigation.svg"
 links:

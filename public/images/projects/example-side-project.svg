@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#f8faf9"/>
+  <rect x="1" y="1" width="1198" height="628" fill="none" stroke="#d9e2df" stroke-width="2"/>
+  <text x="600" y="300" fill="#14211f" font-family="Manrope, Arial, sans-serif" font-size="44" font-weight="800" text-anchor="middle">Replace this image</text>
+  <text x="600" y="350" fill="#5f726f" font-family="Manrope, Arial, sans-serif" font-size="26" text-anchor="middle">public/images/projects/your-project.jpg</text>
+</svg>

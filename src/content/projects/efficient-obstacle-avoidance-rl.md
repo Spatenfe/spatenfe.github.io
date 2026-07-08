@@ -3,6 +3,7 @@ title: "Efficient Obstacle Avoidance of Vehicles using Reinforcement Learning"
 description: "Bachelor's thesis at TUM on multi-agent reinforcement learning for vehicle obstacle avoidance."
 date: 2024-06-01
 featured: true
+category: research
 tags: ["Reinforcement Learning", "Multi-Agent Systems", "Bachelor Thesis"]
 image: "/images/projects/efficient-obstacle-avoidance-rl.svg"
 links:
