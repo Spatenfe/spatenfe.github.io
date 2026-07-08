@@ -14,7 +14,11 @@ const { items } = Astro.props;
     <div class="flex flex-col gap-1 p-4 sm:flex-row sm:items-baseline sm:gap-5 sm:p-5">
       <span class="shrink-0 font-mono text-[11px] uppercase tracking-wide text-muted sm:w-20">{item.date}</span>
       {item.link ? (
-        <a href={withBase(item.link)} class="text-sm text-ink hover:text-accent">{item.text}</a>
+        item.external ? (
+          <a href={item.link} target="_blank" rel="noreferrer" class="text-sm text-ink hover:text-accent">{item.text}</a>
+        ) : (
+          <a href={withBase(item.link)} class="text-sm text-ink hover:text-accent">{item.text}</a>
+        )
       ) : (
         <p class="text-sm text-ink">{item.text}</p>
       )}
