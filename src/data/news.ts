@@ -6,6 +6,11 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
+    date: 'Feb 2026',
+    text: 'Published an ML benchmark for VBF Higgs-pair events with Lars Schneider and Johannes Mesner, advised by LMU Munich.',
+    link: '/projects/vbf-event-classifier'
+  },
+  {
     date: 'Mar 2025',
     text: 'Paper "Decentralized Reinforcement Learning for Multi-Agent Navigation in Unconstrained Environments" accepted at IEEE IV 2025.',
     link: '/projects/decentralized-rl-multi-agent-navigation'
