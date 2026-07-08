@@ -10,6 +10,7 @@ const { project } = Astro.props;
 const { title, description, tags, image, date } = project.data;
 const links = project.data.links ?? {};
 const tagDataset = tags.map((tag) => tag.toLowerCase()).join('|');
+const isCurrentYear = date.getFullYear() === new Date().getFullYear();
 ---
 
 <article
@@ -22,7 +23,13 @@ const tagDataset = tags.map((tag) => tag.toLowerCase()).join('|');
 >
   <div class="relative">
     <img src={withBase(image)} alt={title} class="h-52 w-full border-b border-border object-cover" loading="lazy" />
-    <span class="absolute right-3 top-3 rounded-md border border-border bg-surface/95 px-2 py-1 font-mono text-[11px] text-muted">
+    <span
+      class={`absolute right-3 top-3 rounded-md border px-2 py-1 font-mono text-[11px] ${
+        isCurrentYear
+          ? 'border-emerald-200 bg-emerald-50 font-semibold text-emerald-700'
+          : 'border-border bg-surface/95 text-muted'
+      }`}
+    >
       {date.getFullYear()}
     </span>
   </div>

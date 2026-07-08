@@ -6,15 +6,15 @@ const cvUrl = `${import.meta.env.BASE_URL}${siteData.cvPath}`;
 
 <footer class="mt-20 border-t border-border">
   <div class="container-page flex flex-col items-start justify-between gap-4 py-10 text-sm text-muted sm:flex-row sm:items-center">
-    <p>© {new Date().getFullYear()} {siteData.name}.</p>
+    <div>
+      <p>© {new Date().getFullYear()} {siteData.name}.</p>
+      <p class="mt-1 text-xs">Site template by <a href="https://github.com/oscarbreiner" target="_blank" rel="noreferrer" class="hover:text-ink">Oscar Breiner</a>.</p>
+    </div>
     <div class="flex flex-wrap items-center gap-4">
       <a href={siteData.githubUrl} target="_blank" rel="noreferrer" class="hover:text-ink">GitHub</a>
       <a href={siteData.linkedinUrl} target="_blank" rel="noreferrer" class="hover:text-ink">LinkedIn</a>
       {siteData.email && <a href={`mailto:${siteData.email}`} class="hover:text-ink">{siteData.email}</a>}
       <a href={cvUrl} download class="font-semibold text-accent hover:underline">Download CV</a>
     </div>
-  </div>
-  <div class="container-page pb-6 text-xs text-muted">
-    <p>Site template by <a href="https://github.com/oscarbreiner" target="_blank" rel="noreferrer" class="hover:text-ink">Oscar Breiner</a>.</p>
   </div>
 </footer>

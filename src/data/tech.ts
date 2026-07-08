@@ -6,14 +6,14 @@ export type TechGroup = {
 export const techGroups: TechGroup[] = [
   {
     title: 'AI / ML',
-    items: ['Deep Learning', 'Computer Vision', 'NLP', 'Reinforcement Learning', 'LLM Agents', 'Diffusion Models', '3D Geometry']
+    items: ['Deep Learning', 'Computer Vision', 'NLP', 'Reinforcement Learning', 'LLM Agents', 'Audio Processing', 'Speech Recognition', '3D Geometry']
   },
   {
     title: 'Programming',
-    items: ['Python', 'PyTorch', 'Java', 'C', 'SQL']
+    items: ['Python', 'PyTorch', 'Java', 'C', 'SQL', 'Dart/Flutter', 'Assembly']
   },
   {
     title: 'Tools & Platforms',
-    items: ['Git', 'Docker', 'Kubernetes', 'LangGraph', 'REST API', 'JUnit', 'Testkube']
+    items: ['Slurm', 'Git', 'Docker', 'Kubernetes', 'LangGraph', 'JUnit']
   }
 ];

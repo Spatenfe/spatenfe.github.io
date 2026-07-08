@@ -3,9 +3,10 @@ title: "ML Benchmark for VBF Higgs-Pair Events"
 description: "Benchmarking 12+ ML methods, including DeepSets, to classify vector-boson-fusion Higgs-pair events by coupling strength from particle physics simulations."
 date: 2026-02-01
 featured: true
-category: research
+category: project
 tags: ["Machine Learning", "Particle Physics", "Deep Learning", "Benchmark"]
-image: "/images/projects/vbf-event-classifier-results.png"
+image: "/images/projects/vbf-event-classifier-topology.png"
+bannerImage: "/images/projects/vbf-event-classifier-topology.png"
 links:
   github: "https://github.com/Spatenfe/vbf_event_classifier"
   writeup: "https://spatenfe.github.io/vbf_event_classifier/"

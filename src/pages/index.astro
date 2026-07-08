@@ -36,7 +36,6 @@ const educationItems = education.map((item) => ({
 
 const personalCards = [
   { title: 'Languages', items: profileDetails.languages },
-  { title: 'Certificates', items: profileDetails.certificates },
   { title: 'Passions', items: profileDetails.passions }
 ];
 ---
@@ -47,7 +46,7 @@ const personalCards = [
     <Hero />
 
     <section id="news" class="section-spacing">
-      <SectionHeader title="News" subtitle="Recent updates and milestones." />
+      <SectionHeader title="News" />
       <NewsFeed items={news} />
     </section>
 
@@ -120,21 +119,17 @@ const personalCards = [
     </section>
 
     <section class="section-spacing">
-      <SectionHeader title="Personal" subtitle="Languages, certificates, and interests." />
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-12">
+      <SectionHeader title="Personal" subtitle="Languages and interests." />
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
         {personalCards.map((card, idx) => (
           <article
-            class={`group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6 ${
-              idx === 0 ? 'xl:col-span-5' : idx === 1 ? 'xl:col-span-4' : 'xl:col-span-3'
-            }`}
+            class="group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
           >
             <div
               class={`pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 ${
                 idx === 0
                   ? 'bg-gradient-to-tr from-indigo-100/75 to-transparent'
-                  : idx === 1
-                    ? 'bg-gradient-to-tr from-amber-100/70 to-transparent'
-                    : 'bg-gradient-to-tr from-rose-100/70 to-transparent'
+                  : 'bg-gradient-to-tr from-rose-100/70 to-transparent'
               }`}
             ></div>
             <div class="relative z-10">
@@ -143,20 +138,13 @@ const personalCards = [
                   class={`rounded-lg border p-2 ${
                     idx === 0
                       ? 'border-indigo-200 bg-indigo-50 text-indigo-700'
-                      : idx === 1
-                        ? 'border-amber-200 bg-amber-50 text-amber-700'
-                        : 'border-rose-200 bg-rose-50 text-rose-700'
+                      : 'border-rose-200 bg-rose-50 text-rose-700'
                   }`}
                 >
                   {
                     idx === 0 ? (
                       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 7h10M4 12h16M4 17h9" />
-                      </svg>
-                    ) : idx === 1 ? (
-                      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M8 12l2.5 2.5L16 9" />
-                        <rect x="4" y="4" width="16" height="16" rx="2.5" />
                       </svg>
                     ) : (
                       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -171,11 +159,7 @@ const personalCards = [
                 {card.items.map((item) => (
                   <li
                     class={`rounded-lg border bg-bg px-3 py-1.5 transition group-hover:text-ink ${
-                      idx === 0
-                        ? 'border-border group-hover:border-indigo-200'
-                        : idx === 1
-                          ? 'border-border group-hover:border-amber-200'
-                          : 'border-border group-hover:border-rose-200'
+                      idx === 0 ? 'border-border group-hover:border-indigo-200' : 'border-border group-hover:border-rose-200'
                     }`}
                   >
                     {item}
@@ -190,12 +174,10 @@ const personalCards = [
 
     <section id="stack" class="section-spacing">
       <SectionHeader title="Tech Stack" subtitle="Core tools for research throughput and production-grade system delivery." />
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-12">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
         {techGroups.map((group, idx) => (
           <article
-            class={`group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6 ${
-              idx === 0 ? 'xl:col-span-7' : idx === 1 ? 'xl:col-span-5' : idx === 2 ? 'xl:col-span-5' : 'xl:col-span-7'
-            }`}
+            class="group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
           >
             <div
               class={`pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 ${
