@@ -22,15 +22,16 @@ interface Props {
 
 const { project } = Astro.props as Props;
 const { Content } = await render(project);
-const { title, description, date, tags, image, bannerImage } = project.data;
+const { title, description, date, tags, image, bannerImage, category } = project.data;
 const links = project.data.links ?? {};
 const banner = bannerImage ?? image;
+const backHref = withBase(category === 'research' ? '/#research' : '/#projects');
 ---
 
 <BaseLayout title={`${title} | Project`} description={description}>
   <Navbar />
   <main class="container-page section-spacing">
-    <a href={withBase('/projects')} class="text-sm font-semibold text-accent hover:underline">← Back to Projects</a>
+    <a href={backHref} class="text-sm font-semibold text-accent hover:underline">← Back to Projects</a>
     <SectionHeader title={title} subtitle={description} />
 
     <article class="surface-card overflow-hidden">
