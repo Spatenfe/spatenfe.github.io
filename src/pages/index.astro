@@ -67,7 +67,7 @@ const sidebarItems = [
         subtitle="A selection of projects that display the highlights of my work."
       />
       <div class="relative">
-        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2">
+        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-3">
           {researchProjects.map((project) => (
             <div class="w-full shrink-0 snap-start md:w-[calc(50%-0.75rem)] xl:w-[calc((100%-3rem)/3)]">
               <ProjectCard project={project} />
@@ -94,7 +94,7 @@ const sidebarItems = [
           subtitle="Independent builds and tools outside of published research."
         />
         <div class="relative">
-          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2">
+          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-3">
             {otherProjects.map((project) => (
               <div class="w-full shrink-0 snap-start md:w-[calc(50%-0.75rem)] xl:w-[calc((100%-3rem)/3)]">
                 <ProjectCard project={project} />
@@ -146,18 +146,26 @@ const sidebarItems = [
       runEqualize();
       window.addEventListener('resize', runEqualize);
 
-      document.querySelectorAll('[data-scroll-prev]').forEach((button) => {
-        button.addEventListener('click', () => {
-          const target = document.getElementById(button.getAttribute('data-scroll-prev'));
-          target?.scrollBy({ left: -target.clientWidth, behavior: 'smooth' });
-        });
-      });
-      document.querySelectorAll('[data-scroll-next]').forEach((button) => {
-        button.addEventListener('click', () => {
-          const target = document.getElementById(button.getAttribute('data-scroll-next'));
-          target?.scrollBy({ left: target.clientWidth, behavior: 'smooth' });
-        });
-      });
+      const wireScrollRow = (gridId) => {
+        const row = document.getElementById(gridId);
+        const prevButton = document.querySelector(`[data-scroll-prev="${gridId}"]`);
+        const nextButton = document.querySelector(`[data-scroll-next="${gridId}"]`);
+        if (!row || (!prevButton && !nextButton)) return;
+
+        const updateButtons = () => {
+          const maxScroll = row.scrollWidth - row.clientWidth;
+          prevButton?.classList.toggle('invisible', row.scrollLeft <= 1);
+          nextButton?.classList.toggle('invisible', row.scrollLeft >= maxScroll - 1);
+        };
+
+        prevButton?.addEventListener('click', () => row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' }));
+        nextButton?.addEventListener('click', () => row.scrollBy({ left: row.clientWidth, behavior: 'smooth' }));
+        row.addEventListener('scroll', updateButtons, { passive: true });
+        window.addEventListener('resize', updateButtons);
+        updateButtons();
+      };
+
+      ['featured-project-grid', 'other-project-grid'].forEach(wireScrollRow);
     </script>
 
     <section class="section-spacing">
