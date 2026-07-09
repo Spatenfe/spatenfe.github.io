@@ -4,7 +4,7 @@ description: "Vision-foundation-model pipeline for virtual try-on and semantic o
 date: 2025-07-09
 featured: true
 category: project
-tags: ["Computer Vision", "Deep Learning", "Generative AI", "Virtual Try-On"]
+tags: ["Computer Vision", "Deep Learning", "Generative AI"]
 image: "/images/projects/stylo-pipeline-demo.gif"
 bannerImage: "/images/projects/stylo-pipeline-demo.gif"
 imageFit: "contain"

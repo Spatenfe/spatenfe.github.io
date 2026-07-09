@@ -4,7 +4,7 @@ description: "Flutter companion app for the drinking card game that recognizes d
 date: 2024-07-08
 featured: true
 category: project
-tags: ["Computer Vision", "Deep Learning", "On-Device ML", "Mobile"]
+tags: ["Computer Vision", "Deep Learning", "On-Device ML"]
 image: "/images/projects/fcku-banner.png"
 bannerImage: "/images/projects/fcku-banner.png"
 imageFit: "contain"

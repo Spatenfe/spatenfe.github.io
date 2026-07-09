@@ -4,7 +4,7 @@ description: "Benchmarking 12+ ML methods, including DeepSets, to classify vecto
 date: 2026-02-01
 featured: true
 category: project
-tags: ["Machine Learning", "Particle Physics", "Deep Learning", "Benchmark"]
+tags: ["Machine Learning", "Deep Learning", "Particle Physics"]
 image: "/images/projects/vbf-event-classifier-banner.png"
 bannerImage: "/images/projects/vbf-event-classifier-banner.png"
 imageFit: "contain"
