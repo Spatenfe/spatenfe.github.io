@@ -66,8 +66,24 @@ const sidebarItems = [
         title="Research Highlights"
         subtitle="A selection of projects that display the highlights of my work."
       />
-      <div id="featured-project-grid" class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {researchProjects.map((project) => <ProjectCard project={project} />)}
+      <div class="relative">
+        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2">
+          {researchProjects.map((project) => (
+            <div class="w-full shrink-0 snap-start md:w-[calc(50%-0.75rem)] xl:w-[calc((100%-3rem)/3)]">
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+        {researchProjects.length > 1 && (
+          <>
+            <button type="button" data-scroll-prev="featured-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2 shadow-soft transition hover:border-ink sm:flex">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" data-scroll-next="featured-project-grid" aria-label="Scroll right" class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 rounded-full border border-border bg-surface p-2 shadow-soft transition hover:border-ink sm:flex">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </>
+        )}
       </div>
     </section>
 
@@ -77,8 +93,24 @@ const sidebarItems = [
           title="Projects"
           subtitle="Independent builds and tools outside of published research."
         />
-        <div id="other-project-grid" class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {otherProjects.map((project) => <ProjectCard project={project} />)}
+        <div class="relative">
+          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2">
+            {otherProjects.map((project) => (
+              <div class="w-full shrink-0 snap-start md:w-[calc(50%-0.75rem)] xl:w-[calc((100%-3rem)/3)]">
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+          {otherProjects.length > 1 && (
+            <>
+              <button type="button" data-scroll-prev="other-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2 shadow-soft transition hover:border-ink sm:flex">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button type="button" data-scroll-next="other-project-grid" aria-label="Scroll right" class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 rounded-full border border-border bg-surface p-2 shadow-soft transition hover:border-ink sm:flex">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </>
+          )}
         </div>
       </section>
     )}
@@ -113,6 +145,19 @@ const sidebarItems = [
       const runEqualize = () => ['featured-project-grid', 'other-project-grid'].forEach(equalizeProjectCards);
       runEqualize();
       window.addEventListener('resize', runEqualize);
+
+      document.querySelectorAll('[data-scroll-prev]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.getAttribute('data-scroll-prev'));
+          target?.scrollBy({ left: -target.clientWidth, behavior: 'smooth' });
+        });
+      });
+      document.querySelectorAll('[data-scroll-next]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = document.getElementById(button.getAttribute('data-scroll-next'));
+          target?.scrollBy({ left: target.clientWidth, behavior: 'smooth' });
+        });
+      });
     </script>
 
     <section class="section-spacing">
