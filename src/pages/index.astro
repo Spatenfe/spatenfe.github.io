@@ -46,7 +46,7 @@ const sidebarItems = [
   { ids: ['research'], label: 'Research Highlights' },
   ...(otherProjects.length > 0 ? [{ ids: ['projects'], label: 'Projects' }] : []),
   { ids: ['experience', 'education'], label: 'Experience & Education' },
-  { ids: ['personal', 'stack'], label: 'Personal & Tech Stack' }
+  { ids: ['stack', 'personal'], label: 'Personal & Tech Stack' }
 ];
 ---
 
@@ -131,60 +131,6 @@ const sidebarItems = [
 
     <section class="section-spacing">
       <div class="flex flex-col gap-10">
-        <div id="personal">
-          <SectionHeader title="Personal" subtitle="Languages and interests." />
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {personalCards.map((card, idx) => (
-              <article
-                class="group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
-              >
-                <div
-                  class={`pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 ${
-                    idx === 0
-                      ? 'bg-gradient-to-tr from-indigo-100/38 to-transparent'
-                      : 'bg-gradient-to-tr from-rose-100/35 to-transparent'
-                  }`}
-                ></div>
-                <div class="relative z-10">
-                  <div class="flex items-center gap-3">
-                    <span
-                      class={`rounded-lg border p-2 ${
-                        idx === 0
-                          ? 'border-indigo-200/50 bg-indigo-50/50 text-indigo-700/60'
-                          : 'border-rose-200/50 bg-rose-50/50 text-rose-700/60'
-                      }`}
-                    >
-                      {
-                        idx === 0 ? (
-                          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M4 7h10M4 12h16M4 17h9" />
-                          </svg>
-                        ) : (
-                          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z" />
-                          </svg>
-                        )
-                      }
-                    </span>
-                    <h3 class="text-base font-semibold text-ink">{card.title}</h3>
-                  </div>
-                  <ul class="mt-4 flex flex-wrap gap-2 text-sm text-muted">
-                    {card.items.map((item) => (
-                      <li
-                        class={`rounded-lg border bg-bg px-3 py-1.5 transition group-hover:text-ink ${
-                          idx === 0 ? 'border-border group-hover:border-indigo-200/60' : 'border-border group-hover:border-rose-200/60'
-                        }`}
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
         <div id="stack">
           <SectionHeader title="Tech Stack" subtitle="Core tools for research throughput and production-grade system delivery." />
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -254,6 +200,60 @@ const sidebarItems = [
                               : idx === 2
                                 ? 'border-border group-hover:border-teal-200/60'
                                 : 'border-border group-hover:border-slate-300/60'
+                        }`}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div id="personal">
+          <SectionHeader title="Personal" subtitle="Languages and interests." />
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {personalCards.map((card, idx) => (
+              <article
+                class="group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
+              >
+                <div
+                  class={`pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 ${
+                    idx === 0
+                      ? 'bg-gradient-to-tr from-indigo-100/38 to-transparent'
+                      : 'bg-gradient-to-tr from-rose-100/35 to-transparent'
+                  }`}
+                ></div>
+                <div class="relative z-10">
+                  <div class="flex items-center gap-3">
+                    <span
+                      class={`rounded-lg border p-2 ${
+                        idx === 0
+                          ? 'border-indigo-200/50 bg-indigo-50/50 text-indigo-700/60'
+                          : 'border-rose-200/50 bg-rose-50/50 text-rose-700/60'
+                      }`}
+                    >
+                      {
+                        idx === 0 ? (
+                          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M4 7h10M4 12h16M4 17h9" />
+                          </svg>
+                        ) : (
+                          <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10Z" />
+                          </svg>
+                        )
+                      }
+                    </span>
+                    <h3 class="text-base font-semibold text-ink">{card.title}</h3>
+                  </div>
+                  <ul class="mt-4 flex flex-wrap gap-2 text-sm text-muted">
+                    {card.items.map((item) => (
+                      <li
+                        class={`rounded-lg border bg-bg px-3 py-1.5 transition group-hover:text-ink ${
+                          idx === 0 ? 'border-border group-hover:border-indigo-200/60' : 'border-border group-hover:border-rose-200/60'
                         }`}
                       >
                         {item}
