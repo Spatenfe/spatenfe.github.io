@@ -74,6 +74,8 @@ const sidebarItems = [
             </div>
           ))}
         </div>
+        <div data-scroll-fade-left="featured-project-grid" class="pointer-events-none absolute inset-y-3 left-0 w-12 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 sm:w-20"></div>
+        <div data-scroll-fade-right="featured-project-grid" class="pointer-events-none absolute inset-y-3 right-0 w-12 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 sm:w-20"></div>
         {researchProjects.length > 1 && (
           <>
             <button type="button" data-scroll-prev="featured-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2 shadow-soft transition hover:border-ink sm:flex">
@@ -101,6 +103,8 @@ const sidebarItems = [
               </div>
             ))}
           </div>
+          <div data-scroll-fade-left="other-project-grid" class="pointer-events-none absolute inset-y-3 left-0 w-12 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 sm:w-20"></div>
+          <div data-scroll-fade-right="other-project-grid" class="pointer-events-none absolute inset-y-3 right-0 w-12 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 sm:w-20"></div>
           {otherProjects.length > 1 && (
             <>
               <button type="button" data-scroll-prev="other-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2 shadow-soft transition hover:border-ink sm:flex">
@@ -150,12 +154,18 @@ const sidebarItems = [
         const row = document.getElementById(gridId);
         const prevButton = document.querySelector(`[data-scroll-prev="${gridId}"]`);
         const nextButton = document.querySelector(`[data-scroll-next="${gridId}"]`);
-        if (!row || (!prevButton && !nextButton)) return;
+        const fadeLeft = document.querySelector(`[data-scroll-fade-left="${gridId}"]`);
+        const fadeRight = document.querySelector(`[data-scroll-fade-right="${gridId}"]`);
+        if (!row) return;
 
         const updateButtons = () => {
           const maxScroll = row.scrollWidth - row.clientWidth;
-          prevButton?.classList.toggle('invisible', row.scrollLeft <= 1);
-          nextButton?.classList.toggle('invisible', row.scrollLeft >= maxScroll - 1);
+          const atStart = row.scrollLeft <= 1;
+          const atEnd = row.scrollLeft >= maxScroll - 1;
+          prevButton?.classList.toggle('invisible', atStart);
+          nextButton?.classList.toggle('invisible', atEnd);
+          fadeLeft?.classList.toggle('opacity-0', atStart);
+          fadeRight?.classList.toggle('opacity-0', atEnd);
         };
 
         prevButton?.addEventListener('click', () => row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' }));
