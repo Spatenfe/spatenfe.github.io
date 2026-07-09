@@ -5,7 +5,7 @@ export type TechGroup = {
 
 export const techGroups: TechGroup[] = [
   {
-    title: 'AI / ML',
+    title: 'ML / DL',
     items: ['Deep Learning', 'Computer Vision', 'NLP', 'Reinforcement Learning', 'LLM Agents', 'Audio Processing', 'Speech Recognition', '3D Geometry']
   },
   {
