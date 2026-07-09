@@ -4,5 +4,5 @@ export const profileDetails = {
     'German (Native)',
     'Spanish (B1)'
   ],
-  passions: ['Snowboarding', 'Running', 'Mechanical Keyboards', 'Gaming', 'Cultural exchange in Costa Rica (2020)']
+  passions: ['Snowboarding', 'Running', 'Mechanical Keyboards', 'Gaming']
 };
