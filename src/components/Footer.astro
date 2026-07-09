@@ -13,6 +13,7 @@ const cvUrl = `${import.meta.env.BASE_URL}${siteData.cvPath}`;
     <div class="flex flex-wrap items-center gap-4">
       <a href={siteData.githubUrl} target="_blank" rel="noreferrer" class="hover:text-ink">GitHub</a>
       <a href={siteData.linkedinUrl} target="_blank" rel="noreferrer" class="hover:text-ink">LinkedIn</a>
+      <a href={siteData.scholarUrl} target="_blank" rel="noreferrer" class="hover:text-ink">Google Scholar</a>
       {siteData.email && <a href={`mailto:${siteData.email}`} class="hover:text-ink">{siteData.email}</a>}
       <a href={cvUrl} download="CV_Felix_Foerster.pdf" class="font-semibold text-accent hover:underline">Download CV</a>
     </div>

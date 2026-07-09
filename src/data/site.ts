@@ -6,6 +6,7 @@ export const siteData = {
   email: 'f.foerster@tum.de',
   githubUrl: 'https://github.com/Spatenfe',
   linkedinUrl: 'https://www.linkedin.com/in/felix-foerster-li/',
+  scholarUrl: 'https://scholar.google.com/citations?user=VeMI50UAAAAJ',
   cvPath: 'cv.pdf',
 };
 
