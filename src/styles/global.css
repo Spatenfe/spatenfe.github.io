@@ -33,7 +33,7 @@ body {
 }
 
 .section-spacing {
-  @apply py-12 sm:py-16;
+  @apply pt-[2.4rem] pb-12 sm:pt-[3.2rem] sm:pb-16;
 }
 
 .scrollbar-hide {
