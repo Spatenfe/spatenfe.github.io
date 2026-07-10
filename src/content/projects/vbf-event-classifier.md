@@ -7,7 +7,9 @@ category: project
 authors:
   - name: "Felix Förster*"
   - name: "Lars Schneider*"
+    url: "https://www.linkedin.com/in/lars-schneider-4a6871247/"
   - name: "Johannes Mesner*"
+    url: "https://www.linkedin.com/in/johannes-mesner-919676244/"
   - name: "Lars Linden"
   - name: "Celine Stauch"
 tags: ["Machine Learning", "Deep Learning", "Particle Physics"]

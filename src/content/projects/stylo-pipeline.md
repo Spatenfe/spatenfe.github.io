@@ -8,6 +8,7 @@ authors:
   - name: "Felix Förster*"
   - name: "Andreas Weber*"
   - name: "Lars Schneider*"
+    url: "https://www.linkedin.com/in/lars-schneider-4a6871247/"
 tags: ["Computer Vision", "Foundation Models", "Generative AI"]
 image: "/images/projects/stylo-pipeline-demo.gif"
 bannerImage: "/images/projects/stylo-pipeline-demo.gif"

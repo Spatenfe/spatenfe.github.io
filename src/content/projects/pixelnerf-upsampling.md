@@ -7,6 +7,7 @@ category: project
 authors:
   - name: "Felix Förster*"
   - name: "Lars Schneider*"
+    url: "https://www.linkedin.com/in/lars-schneider-4a6871247/"
   - name: "Tobias Neumeier*"
   - name: "Adrian Struzek*"
 tags: ["Computer Vision", "Deep Learning", "3D Geometry"]
