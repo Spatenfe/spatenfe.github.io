@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? '';
@@ -17,7 +18,7 @@ function remarkBaseUrls() {
   const prefix = base.replace(/\/$/, '');
   return () => (tree) => {
     if (!prefix) return;
-    visit(tree, 'image', (node) => {
+    visit(tree, ['image', 'link'], (node) => {
       if (node.url?.startsWith('/') && !node.url.startsWith(prefix + '/')) {
         node.url = prefix + node.url;
       }
@@ -39,7 +40,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  integrations: [tailwind()],
+  integrations: [tailwind(), sitemap()],
   markdown: {
     remarkPlugins: [remarkBaseUrls()],
     shikiConfig: {

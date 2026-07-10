@@ -4,7 +4,7 @@
 
 **Deep Learning Researcher & Engineer** — Computer Vision · NLP · LLM Agents
 
-_Deep learning across vision, audio and language. I enjoy finding new ways to advance our perception on AI and I love embeddings!_
+_Deep learning across vision, audio, and language, with a particular interest in learned representations._
 
 [![GitHub](https://img.shields.io/badge/GitHub-Spatenfe-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Spatenfe)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Felix%20Förster-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/felix-foerster-li/)

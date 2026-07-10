@@ -24,7 +24,7 @@ A machine-learning benchmark for non-resonant vector-boson-fusion (VBF) Higgs-pa
 ## Highlights
 
 - Built a config-driven ML framework with a modular registry system, cartesian-product ablation sweeps, parallel multi-method execution, and VAE-based synthetic minority-class generation for handling severe class imbalance.
-- Benchmarked on ~1,044,000 simulated events (52 kinematic features, full Delphes detector simulation) to separate the Standard Model coupling point (cvv = 1) from five anomalous coupling values — a class that makes up just 0.4% of matched events.
+- Benchmarked on ~1,044,000 simulated events (52 kinematic features, truth-level Monte Carlo without detector effects) to separate the Standard Model coupling point (cvv = 1) from five anomalous coupling values — a class that makes up just 0.4% of matched events.
 - Best single-event accuracy of 78.6% (PyTorch MLP, 3× oversampling, standard scaling); a DeepSets model classifying sets of 10 events jointly reached 99.1% accuracy, showing the coupling signal becomes statistically clear once integrated across multiple events.
 - Automated the full reporting pipeline: summary CSVs, confusion matrices, and accuracy/F1 comparison plots across every scaling, normalization, feature-set, and sampling ablation.
 

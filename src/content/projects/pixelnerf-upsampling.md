@@ -48,9 +48,7 @@ Instead of processing randomly sampled rays, the model is trained on full but do
 
 <img src="/images/projects/pixelnerf-upsampling-upsampler-grid.png" alt="Upsampler comparison on a Set5 image: ground truth and downsampled model input alongside the large upsampler trained with MSE vs. MSE+VGG loss" class="mx-auto w-full max-w-md" />
 
-**pixelNeRF + upsampling.** Combining the downsampled pixelNeRF with the trained upsampler cut SRN-Cars inference time from 2.44s to 0.13s per view — roughly a 19x speedup — while keeping SSIM at 0.76 versus 0.88 for the original full-resolution model. CO3D-Apple showed a comparable trade-off. The remaining quality gap comes mostly from the extreme 16x downsampling factor and the upsampler's relatively simple architecture, both flagged as the clearest directions for future work:
-
-![Qualitative SRN-Cars results: ground truth, original pixelNeRF, our reproduced checkpoint, the downsampled render, and the final upsampled result](/images/projects/pixelnerf-upsampling-banner.png)
+**pixelNeRF + upsampling.** Combining the downsampled pixelNeRF with the trained upsampler cut SRN-Cars inference time from 2.44s to 0.13s per view — roughly a 19x speedup — while keeping SSIM at 0.76 versus 0.88 for the original full-resolution model. CO3D-Apple showed a comparable trade-off. The remaining quality gap comes mostly from the extreme 16x downsampling factor and the upsampler's relatively simple architecture, both flagged as the clearest directions for future work.
 
 ---
 

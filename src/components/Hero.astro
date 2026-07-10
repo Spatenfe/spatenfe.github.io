@@ -86,7 +86,8 @@ const cvUrl = withBase(siteData.cvPath);
           src={profileSrc}
           alt={`${siteData.name} profile`}
           class="h-full w-full object-cover"
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
         />
       </div>
     </div>

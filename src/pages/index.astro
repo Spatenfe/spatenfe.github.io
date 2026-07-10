@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import PublicationList from '../components/PublicationList.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ScrollSpySidebar from '../components/ScrollSpySidebar.astro';
 import Timeline from '../components/Timeline.astro';
@@ -43,7 +44,7 @@ const personalCards = [
 
 const sidebarItems = [
   { ids: ['news'], label: 'News' },
-  { ids: ['research'], label: 'Research Highlights' },
+  { ids: ['research'], label: 'Publications' },
   ...(otherProjects.length > 0 ? [{ ids: ['projects'], label: 'Projects' }] : []),
   { ids: ['experience', 'education'], label: 'Experience & Education' },
   { ids: ['stack', 'personal'], label: 'Personal & Tech Stack' }
@@ -53,7 +54,7 @@ const sidebarItems = [
 <BaseLayout>
   <Navbar />
   <ScrollSpySidebar items={sidebarItems} />
-  <main class="container-page content-with-toc pb-8">
+  <main id="main-content" class="container-page content-with-toc pb-8">
     <Hero />
 
     <section id="news" class="section-spacing">
@@ -63,30 +64,10 @@ const sidebarItems = [
 
     <section id="research" class="section-spacing">
       <SectionHeader
-        title="Research Highlights"
-        subtitle="A selection of projects that display the highlights of my work."
+        title="Publications"
+        subtitle="Peer-reviewed work and research write-ups."
       />
-      <div class="relative">
-        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-6">
-          {researchProjects.map((project) => (
-            <div class="w-[calc(100%-4rem)] shrink-0 snap-start md:w-[calc((100%-6rem)/2)] xl:w-[calc((100%-8.5rem)/3)]">
-              <ProjectCard project={project} />
-            </div>
-          ))}
-        </div>
-        <div data-scroll-fade-left="featured-project-grid" class="pointer-events-none absolute inset-y-6 left-0 w-10 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
-        <div data-scroll-fade-right="featured-project-grid" class="pointer-events-none absolute inset-y-6 right-0 w-10 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
-        {researchProjects.length > 1 && (
-          <>
-            <button type="button" data-scroll-prev="featured-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2.5 shadow-soft transition hover:border-ink sm:flex">
-              <svg viewBox="0 0 24 24" class="h-5 w-5 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button type="button" data-scroll-next="featured-project-grid" aria-label="Scroll right" class="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 rounded-full border border-border bg-surface p-2.5 shadow-soft transition hover:border-ink sm:flex">
-              <svg viewBox="0 0 24 24" class="h-5 w-5 stroke-current" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-          </>
-        )}
-      </div>
+      <PublicationList publications={researchProjects} />
     </section>
 
     {otherProjects.length > 0 && (
@@ -148,7 +129,7 @@ const sidebarItems = [
         });
       };
 
-      const runEqualize = () => ['featured-project-grid', 'other-project-grid'].forEach(equalizeProjectCards);
+      const runEqualize = () => ['other-project-grid'].forEach(equalizeProjectCards);
       runEqualize();
       window.addEventListener('resize', runEqualize);
 
@@ -177,7 +158,7 @@ const sidebarItems = [
         updateButtons();
       };
 
-      ['featured-project-grid', 'other-project-grid'].forEach(wireScrollRow);
+      ['other-project-grid'].forEach(wireScrollRow);
     </script>
 
     <section class="section-spacing">
@@ -198,10 +179,10 @@ const sidebarItems = [
       <div class="flex flex-col gap-10">
         <div id="stack">
           <SectionHeader title="Tech Stack" subtitle="Core tools for research throughput and production-grade system delivery." />
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="reveal grid grid-cols-1 gap-4 md:grid-cols-2">
             {techGroups.map((group, idx) => (
               <article
-                class="group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
+                class="group relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
               >
                 <div
                   class={`pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 ${
@@ -279,10 +260,10 @@ const sidebarItems = [
 
         <div id="personal">
           <SectionHeader title="Personal" subtitle="Languages and interests." />
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div class="reveal grid grid-cols-1 gap-4 md:grid-cols-2">
             {personalCards.map((card, idx) => (
               <article
-                class="group reveal relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
+                class="group relative overflow-hidden rounded-2xl border border-border bg-surface p-5 transition duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6"
               >
                 <div
                   class={`pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 ${

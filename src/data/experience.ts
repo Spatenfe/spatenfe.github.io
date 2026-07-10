@@ -10,27 +10,16 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: 'Research Paper Publication',
-    company: 'Computer Vision Group, TUM',
-    location: 'Munich, Germany',
-    start: 'Mar 2025',
-    end: 'Mar 2025',
-    bullets: [
-      'Researched multi-agent navigation of vehicles in unconstrained environments through reinforcement learning, including an extensive literature review and advanced visualizations.',
-      'Published at IEEE Intelligent Vehicles Symposium (IV) 2025, including review of third-party submissions.'
-    ],
-    tech: ['Reinforcement Learning', 'Multi-Agent Systems', 'Research']
-  },
-  {
     role: 'Student Assistant',
     company: 'Computer Vision Group (MuMoL), TUM',
     location: 'Munich, Germany',
-    start: 'Sep 2024',
+    start: 'Apr 2025',
     end: 'Present',
     bullets: [
       'Adapted open-source software for medical purposes, including local large-scale deployment of LLMs.',
       'Engineered LLM agents with LangGraph and improved performance through custom prompt engineering.',
-      'Managed and analyzed datasets as part of ongoing research work.'
+      'Managed and analyzed datasets as part of ongoing research work.',
+      'Reviewed third-party submissions for the IEEE Intelligent Vehicles Symposium (IV) 2025.'
     ],
     tech: ['LLMs', 'LangGraph', 'Prompt Engineering', 'Deployment']
   },

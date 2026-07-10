@@ -1,7 +1,7 @@
 export const siteData = {
   name: 'Felix Förster',
   title: 'M.Sc. Computer Science Student | Deep Learning Researcher & Engineer',
-  tagline: 'Deep learning across vision, audio and language. I enjoy finding new ways to advance our perception on AI and I love embeddings!',
+  tagline: 'Deep learning across vision, audio, and language, with a particular interest in learned representations.',
   location: 'Munich, Germany',
   email: 'f.foerster@tum.de',
   githubUrl: 'https://github.com/Spatenfe',
@@ -13,5 +13,5 @@ export const siteData = {
 export const seo = {
   title: `${siteData.name} | Portfolio`,
   description: 'Portfolio of Felix Förster: deep learning, computer vision, and multi-agent reinforcement learning research and engineering.',
-  ogImage: '/images/og-cover.svg'
+  ogImage: '/images/og-cover.png'
 };

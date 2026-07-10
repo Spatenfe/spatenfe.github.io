@@ -11,13 +11,14 @@ interface Props {
   subtitle?: string;
   authors?: Author[];
   id?: string;
+  as?: 'h1' | 'h2';
 }
 
-const { title, subtitle, authors, id } = Astro.props;
+const { title, subtitle, authors, id, as: Heading = 'h2' } = Astro.props;
 ---
 
 <header id={id} class="mb-7 sm:mb-10 reveal">
-  <h2 class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h2>
+  <Heading class="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</Heading>
   {authors && authors.length > 0 && <AuthorList authors={authors} class="mt-2" />}
   {subtitle && <p class="mt-3 max-w-3xl text-sm text-muted sm:text-base">{subtitle}</p>}
 </header>

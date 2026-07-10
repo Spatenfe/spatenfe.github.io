@@ -16,7 +16,7 @@ const { authors, class: className = '' } = Astro.props;
 
 <p class={`text-xs text-muted sm:text-sm ${className}`}>
   {authors.map((author, i) => {
-    const isSelf = author.name === siteData.name;
+    const isSelf = author.name.replace(/\*+$/, '').trim() === siteData.name;
     const textClass = isSelf ? 'font-semibold text-ink' : 'font-medium';
     const suffix = i < authors.length - 1 ? ', ' : '';
     return author.url ? (
