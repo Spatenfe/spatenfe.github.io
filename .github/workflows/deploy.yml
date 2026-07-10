@@ -24,16 +24,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Set Pages env
-        run: |
-          REPO_NAME="${GITHUB_REPOSITORY#*/}"
-          if [ "$REPO_NAME" = "${GITHUB_REPOSITORY_OWNER}.github.io" ]; then
-            echo "BASE=/" >> "$GITHUB_ENV"
-          else
-            echo "BASE=/$REPO_NAME/" >> "$GITHUB_ENV"
-          fi
-          echo "SITE=https://${GITHUB_REPOSITORY_OWNER}.github.io" >> "$GITHUB_ENV"
-
+      # base/site are derived in astro.config.mjs from GITHUB_REPOSITORY /
+      # GITHUB_REPOSITORY_OWNER (case-insensitively), so no BASE/SITE env needed.
       - name: Build + upload artifact (Astro)
         uses: withastro/action@v3
         with:
