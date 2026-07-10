@@ -86,10 +86,7 @@ const sidebarItems = [
     </section>
 
     <section id="research" class="section-spacing">
-      <SectionHeader
-        title="Publications"
-        subtitle="Peer-reviewed work and research write-ups."
-      />
+      <SectionHeader title="Publications" />
       {researchProjects.length > 0 && (
         <script type="application/ld+json" set:html={JSON.stringify(publicationSchemas)} />
       )}
@@ -98,10 +95,7 @@ const sidebarItems = [
 
     {otherProjects.length > 0 && (
       <section id="projects" class="section-spacing">
-        <SectionHeader
-          title="Projects"
-          subtitle="Independent builds and tools outside of published research."
-        />
+        <SectionHeader title="Projects" />
         <div class="relative">
           <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-6">
             {otherProjects.map((project) => (
@@ -191,12 +185,12 @@ const sidebarItems = [
     <section class="section-spacing">
       <div class="grid grid-cols-1 gap-10 xl:grid-cols-2 xl:gap-12">
         <div id="experience">
-          <SectionHeader title="Work Experience" subtitle="Production-grade systems built across research and engineering teams." />
+          <SectionHeader title="Work Experience" />
           <Timeline items={experienceItems} variant="experience" />
         </div>
 
         <div id="education">
-          <SectionHeader title="Education" subtitle="Academic foundation in computer vision, AI, and machine learning." />
+          <SectionHeader title="Education" />
           <Timeline items={educationItems} variant="education" />
         </div>
       </div>
@@ -205,7 +199,7 @@ const sidebarItems = [
     <section class="section-spacing">
       <div class="flex flex-col gap-10">
         <div id="stack">
-          <SectionHeader title="Tech Stack" subtitle="Core tools for research throughput and production-grade system delivery." />
+          <SectionHeader title="Tech Stack" />
           <div class="reveal grid grid-cols-1 gap-4 md:grid-cols-2">
             {techGroups.map((group, idx) => (
               <article
@@ -286,7 +280,7 @@ const sidebarItems = [
         </div>
 
         <div id="personal">
-          <SectionHeader title="Personal" subtitle="Languages I speak and what keeps me busy outside of work." />
+          <SectionHeader title="Personal" />
           <div class="reveal grid grid-cols-1 gap-4 md:grid-cols-2">
             {personalCards.map((card, idx) => (
               <article
