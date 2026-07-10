@@ -67,15 +67,15 @@ const sidebarItems = [
         subtitle="A selection of projects that display the highlights of my work."
       />
       <div class="relative">
-        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth -mx-4 px-4 pt-6 pb-14 sm:-mx-7 sm:px-7 lg:-mx-12 lg:px-12">
+        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-6">
           {researchProjects.map((project) => (
             <div class="w-[calc(100%-4rem)] shrink-0 snap-start md:w-[calc((100%-6rem)/2)] xl:w-[calc((100%-8.5rem)/3)]">
               <ProjectCard project={project} />
             </div>
           ))}
         </div>
-        <div data-scroll-fade-left="featured-project-grid" class="pointer-events-none absolute top-6 bottom-14 left-0 w-10 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
-        <div data-scroll-fade-right="featured-project-grid" class="pointer-events-none absolute top-6 bottom-14 right-0 w-10 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
+        <div data-scroll-fade-left="featured-project-grid" class="pointer-events-none absolute inset-y-6 left-0 w-10 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
+        <div data-scroll-fade-right="featured-project-grid" class="pointer-events-none absolute inset-y-6 right-0 w-10 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
         {researchProjects.length > 1 && (
           <>
             <button type="button" data-scroll-prev="featured-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2.5 shadow-soft transition hover:border-ink sm:flex">
@@ -96,15 +96,15 @@ const sidebarItems = [
           subtitle="Independent builds and tools outside of published research."
         />
         <div class="relative">
-          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth -mx-4 px-4 pt-6 pb-14 sm:-mx-7 sm:px-7 lg:-mx-12 lg:px-12">
+          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-6">
             {otherProjects.map((project) => (
               <div class="w-[calc(100%-4rem)] shrink-0 snap-start md:w-[calc((100%-6rem)/2)] xl:w-[calc((100%-8.5rem)/3)]">
                 <ProjectCard project={project} />
               </div>
             ))}
           </div>
-          <div data-scroll-fade-left="other-project-grid" class="pointer-events-none absolute top-6 bottom-14 left-0 w-10 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
-          <div data-scroll-fade-right="other-project-grid" class="pointer-events-none absolute top-6 bottom-14 right-0 w-10 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
+          <div data-scroll-fade-left="other-project-grid" class="pointer-events-none absolute inset-y-6 left-0 w-10 bg-gradient-to-r from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
+          <div data-scroll-fade-right="other-project-grid" class="pointer-events-none absolute inset-y-6 right-0 w-10 bg-gradient-to-l from-bg to-transparent opacity-0 transition-opacity duration-300 md:w-12 xl:w-16"></div>
           {otherProjects.length > 1 && (
             <>
               <button type="button" data-scroll-prev="other-project-grid" aria-label="Scroll left" class="absolute left-0 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-surface p-2.5 shadow-soft transition hover:border-ink sm:flex">
