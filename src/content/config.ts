@@ -28,6 +28,8 @@ const projects = defineCollection({
       .object({
         github: z.string().url().optional(),
         demo: z.string().url().optional(),
+        // A direct link to the published paper (e.g. IEEE Xplore, arXiv).
+        paper: z.string().url().optional(),
         // Unlike github/demo, a write-up can be a local public/ asset (e.g. a PDF
         // report) referenced by root-relative path, not just an external URL.
         writeup: z.string().optional(),

@@ -25,7 +25,7 @@ imageFit: "contain"
 imagePadding: true
 bannerImage: "/images/projects/decentralized-rl-banner.png"
 links:
-  github: "https://github.com/Spatenfe/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments"
+  paper: "https://ieeexplore.ieee.org/abstract/document/11097389"
   projectPage: "https://spatenfe.github.io/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments/"
 ---
 
