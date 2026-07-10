@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { withBase } from '../utils/withBase';
+import { getPngSize } from '../utils/imageSize';
 import AuthorList from './AuthorList.astro';
 
 interface Props {
@@ -14,6 +15,7 @@ const writeupHref = links.writeup?.startsWith('/') ? withBase(links.writeup) : l
 const tagDataset = tags.map((tag) => tag.toLowerCase()).join('|');
 const isCurrentYear = date.getFullYear() === new Date().getFullYear();
 const cardHref = links.projectPage ?? withBase(`/projects/${project.slug}`);
+const imageSize = getPngSize(image);
 ---
 
 <article
@@ -32,6 +34,7 @@ const cardHref = links.projectPage ?? withBase(`/projects/${project.slug}`);
         <img
           src={withBase(image)}
           alt={title}
+          {...(imageSize ?? {})}
           class={imageFit === 'contain' ? 'w-full object-contain' : 'h-52 w-full object-cover'}
           loading="lazy"
         />
@@ -40,6 +43,7 @@ const cardHref = links.projectPage ?? withBase(`/projects/${project.slug}`);
       <img
         src={withBase(image)}
         alt={title}
+        {...(imageSize ?? {})}
         class={imageFit === 'contain'
           ? 'w-full border-b border-border object-contain'
           : 'h-52 w-full border-b border-border object-cover'}

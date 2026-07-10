@@ -16,10 +16,33 @@ import { education } from '../data/education';
 import { profileDetails } from '../data/profile';
 import { news } from '../data/news';
 import { siteData } from '../data/site';
+import { withBase } from '../utils/withBase';
 
 const allProjects = (await getCollection('projects')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const researchProjects = allProjects.filter((project) => project.data.featured && project.data.category === 'research');
 const otherProjects = allProjects.filter((project) => project.data.featured && project.data.category === 'project');
+
+// Structured data (JSON-LD) for each featured publication, rendered in #research.
+const publicationSchemas = researchProjects.map((entry) => {
+  const { title, description, date, tags, venue, authors, bibtex } = entry.data;
+  const links = entry.data.links ?? {};
+  const detailPath = withBase(`/projects/${entry.slug}`);
+  const detailUrl = Astro.site ? new URL(detailPath, Astro.site).toString() : detailPath;
+  const doiMatch = bibtex?.match(/doi\s*=\s*[{"']([^}"']+)/i);
+  const doiUrl = doiMatch ? `https://doi.org/${doiMatch[1].trim()}` : undefined;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ScholarlyArticle',
+    headline: title,
+    description,
+    datePublished: date.toISOString().split('T')[0],
+    keywords: tags.join(', '),
+    author: (authors ?? []).map((a) => ({ '@type': 'Person', name: a.name.replace(/\*+$/, '').trim() })),
+    url: links.paper ?? links.projectPage ?? detailUrl,
+    sameAs: [links.projectPage, links.github, doiUrl].filter(Boolean),
+    ...(venue ? { isPartOf: { '@type': 'CreativeWorkSeries', name: venue } } : {})
+  };
+});
 
 const experienceItems = experience.map((item) => ({
   title: item.company,
@@ -67,6 +90,9 @@ const sidebarItems = [
         title="Publications"
         subtitle="Peer-reviewed work and research write-ups."
       />
+      {researchProjects.length > 0 && (
+        <script type="application/ld+json" set:html={JSON.stringify(publicationSchemas)} />
+      )}
       <PublicationList publications={researchProjects} />
     </section>
 
@@ -132,6 +158,7 @@ const sidebarItems = [
       const runEqualize = () => ['other-project-grid'].forEach(equalizeProjectCards);
       runEqualize();
       window.addEventListener('resize', runEqualize);
+      window.addEventListener('load', runEqualize);
 
       const wireScrollRow = (gridId) => {
         const row = document.getElementById(gridId);

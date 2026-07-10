@@ -20,7 +20,9 @@ export const GET = async () => {
     const url = links.projectPage ?? abs(`/projects/${project.slug}/`);
     const year = String(date.getFullYear());
     const meta = venue ? (venue.includes(year) ? venue : `${venue} ${year}`) : year;
+    const doi = project.data.bibtex?.match(/doi\s*=\s*{([^}]+)}/i)?.[1];
     const extras = [
+      links.paper && `Paper: ${links.paper}${doi ? ` DOI: https://doi.org/${doi}` : ''}`,
       links.github && `Code: ${links.github}`,
       links.writeup && `Write-up: ${links.writeup.startsWith('/') ? abs(links.writeup) : links.writeup}`
     ].filter(Boolean);

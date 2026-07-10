@@ -8,6 +8,11 @@ export const siteData = {
   linkedinUrl: 'https://www.linkedin.com/in/felix-foerster-li/',
   scholarUrl: 'https://scholar.google.com/citations?user=VeMI50UAAAAJ',
   cvPath: 'cv.pdf',
+  // Privacy-friendly analytics (GoatCounter: cookieless, GDPR-safe without a
+  // consent banner). Sign up at https://www.goatcounter.com, pick a site code
+  // (e.g. "spatenfe" → spatenfe.goatcounter.com) and enter it here; leave
+  // empty to disable analytics entirely (no script is emitted).
+  goatCounterCode: '',
 };
 
 export const seo = {

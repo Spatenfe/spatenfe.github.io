@@ -79,6 +79,14 @@ const personSchema = {
     <meta name="twitter:image:alt" content={`${siteData.name} — deep learning researcher at the Technical University of Munich`} />
 
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    {siteData.goatCounterCode && (
+      <script
+        is:inline
+        async
+        data-goatcounter={`https://${siteData.goatCounterCode}.goatcounter.com/count`}
+        src="https://gc.zgo.at/count.js"></script>
+    )}
   </head>
   <body>
     <a
