@@ -67,7 +67,7 @@ const sidebarItems = [
         subtitle="A selection of projects that display the highlights of my work."
       />
       <div class="relative">
-        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pt-6 pb-14">
+        <div id="featured-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth -mx-4 px-4 pt-6 pb-14 sm:-mx-7 sm:px-7 lg:-mx-12 lg:px-12">
           {researchProjects.map((project) => (
             <div class="w-[calc(100%-4rem)] shrink-0 snap-start md:w-[calc((100%-6rem)/2)] xl:w-[calc((100%-8.5rem)/3)]">
               <ProjectCard project={project} />
@@ -96,7 +96,7 @@ const sidebarItems = [
           subtitle="Independent builds and tools outside of published research."
         />
         <div class="relative">
-          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pt-6 pb-14">
+          <div id="other-project-grid" class="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth -mx-4 px-4 pt-6 pb-14 sm:-mx-7 sm:px-7 lg:-mx-12 lg:px-12">
             {otherProjects.map((project) => (
               <div class="w-[calc(100%-4rem)] shrink-0 snap-start md:w-[calc((100%-6rem)/2)] xl:w-[calc((100%-8.5rem)/3)]">
                 <ProjectCard project={project} />
