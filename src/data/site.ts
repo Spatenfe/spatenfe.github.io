@@ -12,7 +12,7 @@ export const siteData = {
   // consent banner). Sign up at https://www.goatcounter.com, pick a site code
   // (e.g. "spatenfe" → spatenfe.goatcounter.com) and enter it here; leave
   // empty to disable analytics entirely (no script is emitted).
-  goatCounterCode: '',
+  goatCounterCode: 'spatenfe',
 };
 
 export const seo = {
