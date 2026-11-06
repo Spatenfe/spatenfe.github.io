@@ -14,6 +14,26 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
+    date: 'Nov 2026',
+    segments: [
+      { text: 'Released ' },
+      { text: 'LAION-Audio-XL', link: 'https://projects.laion.ai/clap2/', external: true },
+      {
+        text: ', a web-scale audio-text corpus (365M clips), scaling studies for contrastive language-audio pretraining, and the CLAP2 model family, joint work with LAION.'
+      }
+    ]
+  },
+  {
+    date: 'Nov 2026',
+    segments: [
+      { text: 'Finished my M.Sc. at TUM with distinction. Starting in January 2027, I will be a Ph.D. student at the ' },
+      { text: 'University of Tübingen, Tübingen AI Center', link: 'https://tuebingen.ai/', external: true },
+      { text: ', advised by ' },
+      { text: 'A. Sophia Koepke', link: 'https://akoepke.github.io/', external: true },
+      { text: ' and Matthias Bethge.' }
+    ]
+  },
+  {
     date: 'Jul 2026',
     segments: [
       { text: "I'm happy to join " },
@@ -30,12 +50,6 @@ export const news: NewsItem[] = [
     ]
   },
   {
-    date: 'Feb 2026',
-    text: 'Published an ML benchmark for VBF Higgs-pair events with Lars Schneider and Johannes Mesner, advised by Lars Linden and Celine Stauch (LMU Munich).',
-    link: 'https://spatenfe.github.io/vbf_event_classifier/',
-    external: true
-  },
-  {
     date: 'Apr 2025',
     text: 'Joined the Computer Vision Group (MuMoL) at TUM as a Student Assistant.',
     link: 'https://akoepke.github.io/mumol.html',
@@ -46,9 +60,5 @@ export const news: NewsItem[] = [
     text: 'Paper "Decentralized Reinforcement Learning for Multi-Agent Navigation in Unconstrained Environments" accepted at IEEE IV 2025.',
     link: 'https://spatenfe.github.io/Decentralized_Reinforcement_Learning_for_Multi-Agent-Navigation_in_Unconstrained_Environments/',
     external: true
-  },
-  {
-    date: 'Oct 2024',
-    text: 'Started the M.Sc. Computer Science program at the Technical University of Munich.'
   }
 ];

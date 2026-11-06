@@ -23,7 +23,6 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: siteData.name,
-  email: `mailto:${siteData.email}`,
   jobTitle: 'M.Sc. Computer Science Student and Deep Learning Researcher',
   affiliation: {
     '@type': 'CollegeOrUniversity',
@@ -96,5 +95,11 @@ const personSchema = {
       Skip to content
     </a>
     <slot />
+    <script is:inline>
+      document.querySelectorAll('[data-email]').forEach((el) => {
+        const address = atob(el.getAttribute('data-email')).split('').reverse().join('');
+        el.setAttribute('href', `mailto:${address}`);
+      });
+    </script>
   </body>
 </html>

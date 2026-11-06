@@ -2,13 +2,12 @@
 import { siteData } from '../data/site';
 import { withBase } from '../utils/withBase';
 
-const cvUrl = withBase(siteData.cvPath);
 const navItems = [
   { label: 'Home', href: withBase('/') },
   { label: 'News', href: withBase('/#news') },
   { label: 'Publications', href: withBase('/#research') },
   { label: 'Experience & Education', href: withBase('/#experience') },
-  { label: 'Personal & Tech Stack', href: withBase('/#stack') }
+  { label: 'Personal', href: withBase('/#personal') }
 ];
 ---
 
@@ -49,13 +48,6 @@ const navItems = [
         class="rounded-lg border border-transparent p-3 text-muted transition hover:border-border hover:bg-surface hover:text-ink"
       >
         <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.135 14.978 9.5 12 9.5s-5.548 1.635-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-      </a>
-      <a
-        href={cvUrl}
-        download="CV_Felix_Foerster.pdf"
-        class="rounded-lg border border-accent bg-accent px-3 py-2 text-xs font-semibold text-white transition hover:bg-accent-dark sm:px-4"
-      >
-        Download CV
       </a>
     </div>
   </div>

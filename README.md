@@ -76,12 +76,11 @@ Experience and education data live in:
 
 ## Key Routes
 
-- `/` Homepage with hero, news, featured projects, stack, experience, education
+- `/` Homepage with hero, news, featured projects, experience, education
 - `/projects/[slug]` Project detail page
 
 ## Base Path Safety
 
-- CV download uses `${import.meta.env.BASE_URL}cv.pdf`
 - Profile and thumbnails are prefixed via `import.meta.env.BASE_URL`/`withBase()`
 - Internal links use `withBase()` where needed
 
@@ -92,11 +91,9 @@ Edit these files first:
 - `src/data/site.ts` (name, bio, links, email)
 - `src/data/experience.ts`
 - `src/data/education.ts`
-- `src/data/tech.ts`
 - `src/data/news.ts`
 - `src/data/profile.ts`
 - `src/content/projects/*.md`
-- `public/cv.pdf`
 - `public/images/profile.jpg` (replace with your own photo)
 
 ## Deploy

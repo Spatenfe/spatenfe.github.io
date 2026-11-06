@@ -34,11 +34,11 @@ The site must work both as a user site (`<user>.github.io`, base `/`) and a proj
 
 Projects are an Astro content collection (`src/content/projects/*.md`), schema defined in `src/content/config.ts`. Key fields: `featured`, `category` (`research` | `project`) drive which homepage grid a project appears in; `image`/`bannerImage`/`imageFit`/`imagePadding`/`bannerPadding` control card vs. detail-page rendering. `src/pages/projects/[slug].astro` renders each entry.
 
-Non-project content (bio, experience, education, tech stack, news) lives as plain TS data modules in `src/data/*.ts` (`site.ts`, `experience.ts`, `education.ts`, `tech.ts`, `profile.ts`, `news.ts`), not content collections — edit these directly rather than adding schemas.
+Non-project content (bio, experience, education, news) lives as plain TS data modules in `src/data/*.ts` (`site.ts`, `experience.ts`, `education.ts`, `profile.ts`, `news.ts`), not content collections — edit these directly rather than adding schemas.
 
 ### Homepage structure (`src/pages/index.astro`)
 
-Single long scrolling page assembled from sections with stable `id`s (`news`, `research`, `projects`, `experience`, `education`, `personal`, `stack`) used both for `Navbar` anchor links and for `ScrollSpySidebar`. Experience/Education and Personal/Tech Stack are laid out as side-by-side column pairs within one section each (not separate sections), so the scroll-spy sidebar groups each pair into a single nav entry (`ScrollSpySidebar` items take an `ids: string[]`, not a single `id`, so one entry can track multiple section elements at once and highlight when any of them is in view).
+Single long scrolling page assembled from sections with stable `id`s (`news`, `research`, `projects`, `experience`, `education`, `personal`) used both for `Navbar` anchor links and for `ScrollSpySidebar`. Experience/Education are laid out as a side-by-side column pair within one section (not separate sections), so the scroll-spy sidebar groups the pair into a single nav entry (`ScrollSpySidebar` items take an `ids: string[]`, not a single `id`, so one entry can track multiple section elements at once and highlight when any of them is in view).
 
 `ScrollSpySidebar.astro` is fixed-position and only shown at the `xl` (1280px) breakpoint. It reserves real layout space via the `.content-with-toc` class (defined in `src/styles/global.css`, applied to `<main>`) rather than floating in the container's centering margin — this class is deliberately declared *after* `.container-page` in `global.css` so its `padding-left` wins the cascade at the same breakpoint; keep that ordering if editing either class.
 

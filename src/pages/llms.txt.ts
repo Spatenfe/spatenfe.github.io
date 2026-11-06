@@ -38,9 +38,7 @@ export const GET = async () => {
     `> ${siteData.title}. ${siteData.tagline}`,
     '',
     `- Location: ${siteData.location}`,
-    `- Email: ${siteData.email}`,
     `- Portfolio: ${origin}`,
-    `- CV: ${abs(siteData.cvPath)}`,
     `- GitHub: ${siteData.githubUrl}`,
     `- LinkedIn: ${siteData.linkedinUrl}`,
     `- Google Scholar: ${siteData.scholarUrl}`,
@@ -49,14 +47,14 @@ export const GET = async () => {
     '',
     ...education.map(
       (entry) =>
-        `- ${entry.degree}, ${entry.university}, ${entry.location} (${entry.start} — ${entry.end}). ${entry.highlights.join(' ')}`
+        `- ${entry.degree}, ${entry.university}, ${entry.location} (${entry.end ? `${entry.start} — ${entry.end}` : entry.start}). ${entry.highlights.join(' ')}`
     ),
     '',
     '## Experience',
     '',
     ...experience.map(
       (entry) =>
-        `- ${entry.role}, ${entry.company}, ${entry.location} (${entry.start} — ${entry.end}). ${entry.bullets.join(' ')}`
+        `- ${entry.role}, ${entry.company}, ${entry.location} (${entry.end ? `${entry.start} — ${entry.end}` : entry.start}). ${entry.bullets.join(' ')}`
     ),
     '',
     '## Publications',

@@ -11,7 +11,7 @@ interface Props {
 const { publications } = Astro.props;
 ---
 
-<ol class="reveal flex flex-col gap-4 py-2">
+<ol class="reveal flex flex-col gap-4 py-2 sm:grid sm:auto-rows-fr">
   {publications.map((pub) => {
     const { title, date, venue, image, authors, bibtex } = pub.data;
     const links = pub.data.links ?? {};
@@ -22,14 +22,19 @@ const { publications } = Astro.props;
     const imageSize = getPngSize(image);
     return (
       <li>
-        <article class="surface-card flex flex-col gap-5 p-5 transition duration-200 hover:shadow-card sm:flex-row sm:gap-6 sm:p-6">
-          <img
-            src={withBase(image)}
-            alt=""
-            loading="lazy"
-            {...(imageSize ?? {})}
-            class="w-full shrink-0 rounded-lg border border-border object-contain sm:h-auto sm:w-44 sm:self-stretch"
-          />
+        <article class="surface-card flex h-full flex-col gap-5 p-5 transition duration-200 hover:shadow-card sm:min-h-[12rem] sm:flex-row sm:gap-6 sm:p-6">
+          {/* On sm+ the image is absolutely positioned so it fills the card's height
+              without driving it; with the grid's auto-rows-fr every card is as tall
+              as the tallest one's text. */}
+          <div class="relative shrink-0 sm:w-44 sm:self-stretch">
+            <img
+              src={withBase(image)}
+              alt=""
+              loading="lazy"
+              {...(imageSize ?? {})}
+              class="w-full rounded-lg border border-border bg-surface object-contain sm:absolute sm:inset-0 sm:h-full"
+            />
+          </div>
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
               {venue && (
